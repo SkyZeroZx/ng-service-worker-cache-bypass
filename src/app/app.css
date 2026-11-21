@@ -1,0 +1,25 @@
+main {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font:
+    15px/1.5 system-ui,
+    sans-serif;
+}
+
+button {
+  margin-right: 0.5rem;
+}
+
+li {
+  margin: 0.3rem 0;
+}
+
+li.repeat {
+  color: #b00020;
+}
+
+em {
+  display: block;
+  font-size: 0.9em;
+}

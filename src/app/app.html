@@ -1,0 +1,32 @@
+<main>
+  <h1>Angular {{ version }} service worker PoC</h1>
+  <p>
+    <code>/api/me</code> is matched by an asset group (<code>"urls": ["/api/**"]</code>) and is
+    always sent with <code>Cache-Control: no-store, private</code>. <code>request</code> is the
+    server's count of <code>/api/me</code> requests.
+  </p>
+  <p>
+    Service worker: <strong data-testid="worker">{{ worker() }}</strong>
+  </p>
+
+  <button type="button" data-testid="case-1" (click)="caseOne()">Case 1: after logout</button>
+  <button type="button" data-testid="case-2" (click)="caseTwo()">
+    Case 2: two requests at once
+  </button>
+
+  <p data-testid="status">{{ status() }}</p>
+
+  <ol>
+    @for (line of lines(); track $index) {
+      <li [class.repeat]="line.repeat">
+        <span>{{ line.text }}</span>
+        @if (line.json) {
+          → <code>{{ line.json }}</code>
+        }
+        @if (line.repeat) {
+          <em>same response as above, this request never reached the server</em>
+        }
+      </li>
+    }
+  </ol>
+</main>
